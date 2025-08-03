@@ -1,0 +1,59 @@
+Please create a complete Node.js project for internal staff to manually issue digital port passes and vehicle stickers one at a time.
+
+Features:
+
+1. Frontend (served at `/`):
+- An HTML form where staff enter each individual pass separately.
+- Fields:
+  - Full name (required)
+  - Contact email (required, for reference only)
+  - Pass type (dropdown):
+    - Daily Pass (MVR 6.11) — requires ID card number (required)
+    - Vehicle Sticker (MVR 11.21) — requires vehicle plate number (required)
+    - Crane Lorry Vehicle Sticker Pass (MVR 81.51) — requires vehicle plate number (required)
+  - Valid date (required)
+  - Upload bank transfer slip file (required)
+- The form dynamically shows/hides ID card or vehicle plate input based on selected pass type.
+- On submission:
+  - Generate a unique pass number.
+  - Display a **print preview of the pass card** on-screen including:
+    - Company logo
+    - Customer name
+    - Contact email
+    - ID card number or vehicle plate (if applicable)
+    - Pass type and valid date
+    - Unique pass number
+    - QR code encoding the pass number (using qrcode)
+    - Price according to pass type
+  - Provide buttons to:
+    - **Open browser print dialog** for printing or saving as PDF.
+    - Optionally, download the pass card as a PDF using browser print functionality.
+- Store uploaded slips on the server in `/uploads/slips`.
+- No backend PDF generation or automated emailing.
+
+2. Backend (Express on port 3000 or environment port):
+- Use multer for file uploads
+- Use body-parser for form data
+- Validate all fields depending on pass type; return errors if missing.
+- Generate unique pass numbers.
+- Save uploaded slips on server.
+- Serve the printable pass data back to frontend for display.
+
+3. Technologies:
+- Express.js
+- multer
+- body-parser
+- qrcode (for QR code generation as data URLs)
+
+4. Additional:
+- The printable pass card should be clean, professional, and suitable for direct printing or saving as PDF.
+- QR code must encode the unique pass number.
+- Clear frontend and backend validation.
+- All passes handled individually and manually by staff.
+- Contact email is for reference only.
+
+Please generate all necessary source files with comments and instructions to install and run.
+
+---
+
+Would you like me to generate the full code now?
